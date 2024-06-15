@@ -2,19 +2,25 @@ import { FC } from 'react';
 import LikeButton from './LikeButton';
 import { formatDate } from '@/lib/format';
 import { PostType } from '@/types';
+import PostImage from './PostImage';
 
-const Post: FC<PostType> = ({
+interface PostProps extends PostType {
+  action: (id: number) => Promise<void>;
+}
+
+const Post: FC<PostProps> = ({
+  id,
   imageUrl,
   title,
   userFirstName,
   createdAt,
   content,
+  isLiked,
+  action,
 }) => {
   return (
     <article className="post">
-      <div className="post-image">
-        <img src={imageUrl} alt={title} />
-      </div>
+      <PostImage imageUrl={imageUrl} alt={title} />
       <div className="post-content">
         <header>
           <div>
@@ -25,7 +31,12 @@ const Post: FC<PostType> = ({
             </p>
           </div>
           <div>
-            <LikeButton />
+            <form
+              action={action.bind(null, id)}
+              className={isLiked ? 'liked' : ''}
+            >
+              <LikeButton />
+            </form>
           </div>
         </header>
         <p>{content}</p>

@@ -22,3 +22,7 @@ export interface LikeType {
   userId: number;
   postId: number;
 }
+
+export interface FormErrorsType {
+  errors: string[];
+}

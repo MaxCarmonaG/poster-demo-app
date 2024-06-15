@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
-import { Merriweather } from "next/font/google";
-import Header from "@/components/Header";
-import "./globals.css";
+import { ReactNode } from 'react';
+import type { Metadata } from 'next';
+import { Merriweather } from 'next/font/google';
+import Header from '@/components/Header';
+import './globals.css';
 
 const merriweather = Merriweather({
   subsets: ['latin'],
   style: ['normal', 'italic'],
-  weight: ['300', '400', '700', '900']
+  weight: ['300', '400', '700', '900'],
 });
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">

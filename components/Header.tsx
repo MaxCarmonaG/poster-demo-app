@@ -1,16 +1,17 @@
-import { FC } from "react";
-import Link from "next/link";
-import logo from "@/assets/logo.png";
-import Image from "next/image";
+import { FC } from 'react';
+import Link from 'next/link';
+import logo from '@/assets/logo.png';
+import Image from 'next/image';
 
 const Header: FC = () => (
   <header id="main-header">
     <Link href="/">
       <Image
-        src={logo.src}
+        src={logo}
         alt="Mobile phone with posts feed on it"
-        width={logo.width}
-        height={logo.height}
+        width={100}
+        height={100}
+        priority
       />
     </Link>
     <nav>
